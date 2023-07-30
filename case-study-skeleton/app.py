@@ -21,13 +21,13 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 #Code goes below here
-<<<<<<< Updated upstream
+# <<<<<<< Updated upstream
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-=======
+# =======
 @app.route('/')
 def home():
     
