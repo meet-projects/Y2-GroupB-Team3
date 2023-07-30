@@ -2,34 +2,36 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
 
+app = Flask(__name__, template_folder='templates', static_folder='static')
+app.config['SECRET_KEY'] = 'super-secret-key'
 
 config = {
-  apiKey: "AIzaSyBylDOMbYa1vsU-BxgstPmfl9hTYn5XbQQ",
-  authDomain: "final-project-9552e.firebaseapp.com",
-  databaseURL: "https://final-project-9552e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "final-project-9552e",
-  storageBucket: "final-project-9552e.appspot.com",
-  messagingSenderId: "848642725083",
-  appId: "1:848642725083:web:b0b26fb00e4bf03dff28fe",
-  measurementId: "G-7SJLWPFJM6"
-};
+
+  "apiKey": "AIzaSyAJ2MlenTN5PMQcFJko9FBneumi-mrurXs",
+  "authDomain": "group-project-97de5.firebaseapp.com",
+  "projectId": "group-project-97de5",
+  "storageBucket": "group-project-97de5.appspot.com",
+  "messagingSenderId": "643161578952",
+  "appId": "1:643161578952:web:dcaf1c68b2bd08fc7634fd",
+  "databaseURL":"https://group-project-97de5-default-rtdb.europe-west1.firebasedatabase.app/"
+}
+
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+db=firebase.database()
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
-app.config['SECRET_KEY'] = 'super-secret-key'
+
 
 #Code goes below here
 # <<<<<<< Updated upstream
 
 @app.route('/')
-def index():
+def Home():
     return render_template("index.html")
 
 # =======
-@app.route('/')
-def home():
+
     
 # >>>>>>> Stashed changes
 
