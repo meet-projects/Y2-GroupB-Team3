@@ -7,6 +7,10 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 
 #Code goes below here
 
+@app.route('/')
+def index():
+    return render_template("index.html")
+
 
 
 
