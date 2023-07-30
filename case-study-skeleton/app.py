@@ -31,7 +31,7 @@ def index():
 @app.route('/')
 def home():
     
->>>>>>> Stashed changes
+# >>>>>>> Stashed changes
 
 
 
