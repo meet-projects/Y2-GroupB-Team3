@@ -91,6 +91,20 @@
   }
 }
 
+#dd{
+  position: relative;
+  width: 81px;
+  height: 81px;
+  gap: 1rem;
+  right: 20px;
+}
+
+.ddd{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  gap: 1rem;
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
