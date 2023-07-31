@@ -32,8 +32,8 @@ def Home():
 
 
 
-@app.route('/join')
-def Joinus():
+@app.route('/Join_us')
+def Join_us():
     return render_template("Join_us.html")
 
 
