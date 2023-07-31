@@ -45,7 +45,6 @@ def Join_us():
         except:
             error = "Authentication failed"
             print(error)
-
     return render_template("Join_us.html")
 
 
@@ -59,13 +58,6 @@ def partners():
 @app.route('/About_us')
 def About_us():
     return render_template("About_us.html")
-
-# =======
-
-    
-# >>>>>>> Stashed changes
-
-
 
 #Code goes above here
 
