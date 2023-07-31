@@ -34,6 +34,19 @@ def Home():
 
 @app.route('/Join_us')
 def Join_us():
+    error = ""
+    if request.method == 'POST':
+        email = request.form['email']
+        fullname = request.form['fullname']
+        username = request.form['username']
+        try:
+            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            UID = login_session['user']['localId']
+            user = {"fullname":fullname,"username": username,"email":email}
+            db.child("Users").child(UID).set(user)
+            return redirect(url_for('Join_us'))
+        except:
+            error = "Authentication failed"
     return render_template("Join_us.html")
 
 

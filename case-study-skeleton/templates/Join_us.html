@@ -45,16 +45,36 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
-                                </div>
-                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                            </div>
+        
+
+        <!-- Password -->
+        
+
+        <div>
+            <label>fullname*</label>
+            <div>
+                <input type="fullname"  name="fullname" >
+            </div>
+        </div>
+
+        <div>
+            <label>username*</label>
+            <div>
+                <input type="username"  name="username" >
+            </div>
+        </div>
+
+        <div>
+            <label>Email address*</label>
+            <div>
+                <input type="email"  name="email" id="emailStr" required>
+            </div>
+        </div>
+             <div>
+            <input type="submit"/>
+        </div>
+    </form>
+
                             <!-- Submit success message-->
                             <!---->
                             <!-- This is what your users will see when the form-->
