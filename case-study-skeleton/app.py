@@ -6,14 +6,15 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 config = {
-
-  "apiKey": "AIzaSyAJ2MlenTN5PMQcFJko9FBneumi-mrurXs",
-  "authDomain": "group-project-97de5.firebaseapp.com",
-  "projectId": "group-project-97de5",
-  "storageBucket": "group-project-97de5.appspot.com",
-  "messagingSenderId": "643161578952",
-  "appId": "1:643161578952:web:dcaf1c68b2bd08fc7634fd",
-  "databaseURL":"https://group-project-97de5-default-rtdb.europe-west1.firebasedatabase.app/"
+  "apiKey": "AIzaSyBkCc1WY7Yu2BETjmYA6m3jmHYU4Ll5qMI",
+  "authDomain": "fir-17f02.firebaseapp.com",
+  "databaseURL": "https://fir-17f02-default-rtdb.firebaseio.com",
+  "projectId": "fir-17f02",
+  "storageBucket": "fir-17f02.appspot.com",
+  "messagingSenderId": "787139879406",
+  "appId": "1:787139879406:web:e62a546ade52375942eeff",
+  "measurementId": "G-K9LW85TTZH",
+  "databaseURL":"https://fir-17f02-default-rtdb.firebaseio.com/"
 }
 
 
@@ -22,17 +23,13 @@ auth = firebase.auth()
 db=firebase.database()
 
 
-
-#Code goes below here
-# <<<<<<< Updated upstream
-
 @app.route('/')
 def Home():
     return render_template("Home.html")
 
 
 
-@app.route('/Join_us')
+@app.route('/Join_us', methods = ['GET','POST'])
 def Join_us():
     error = ""
     if request.method == 'POST':
@@ -40,13 +37,15 @@ def Join_us():
         fullname = request.form['fullname']
         username = request.form['username']
         try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            login_session['user'] = auth.create_user_with_email_and_password(email, username)
             UID = login_session['user']['localId']
             user = {"fullname":fullname,"username": username,"email":email}
             db.child("Users").child(UID).set(user)
-            return redirect(url_for('Join_us'))
+            return redirect(url_for('About_us'))
         except:
             error = "Authentication failed"
+            print(error)
+
     return render_template("Join_us.html")
 
 
