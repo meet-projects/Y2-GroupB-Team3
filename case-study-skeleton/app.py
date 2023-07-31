@@ -44,8 +44,8 @@ def partners():
 
 
 
-@app.route('/Aboutus')
-def Aboutus():
+@app.route('/About_us')
+def About_us():
     return render_template("About_us.html")
 
 # =======
