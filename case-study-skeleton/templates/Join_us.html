@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,11 +17,13 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
     </head>
-    <body>
+    <body style="background-color:whitesmoke;">
+        
+
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a href="/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://place-il.org/wp-content/uploads/2022/09/logo.svg" class="custom-logo" alt="Place il" decoding="async" width="181" height="28"></a>
+                <a href="/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://place-il.org/wp-content/uploads/2022/09/logo.svg " class="custom-logo" alt="Place il" decoding="async" width="181" height="28"></a>
                 <a class="navbar-brand" href="/About_us">About Us</a>
                 <a class="navbar-brand" href="/partners">Partners</a>
                 <a class="btn btn-primary" href="/Join_us">Join Us</a>
@@ -51,7 +54,7 @@
 
 
         
-    <form method="post" action="/Join_us">
+    <form method="post" action="/Join_us" >
                          <!-- Email -->
         <div>
             <label>Email address*</label>
@@ -98,7 +101,6 @@
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
                                     <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                 </div>
                             </div>
 
