@@ -28,7 +28,25 @@ db=firebase.database()
 
 @app.route('/')
 def Home():
-    return render_template("index.html")
+    return render_template("Home.html")
+
+
+
+@app.route('/join')
+def Joinus():
+    return render_template("Join_us.html")
+
+
+
+@app.route('/partners')
+def partners():
+    return render_template("partners.html")
+
+
+
+@app.route('/Aboutus')
+def Aboutus():
+    return render_template("About_us.html")
 
 # =======
 
