@@ -8,3 +8,7 @@ header.masthead {
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
+
+footer {
+  background-color: #b3d9ff !important;
+}
