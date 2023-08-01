@@ -34,18 +34,38 @@ def Join_us():
     error = ""
     if request.method == 'POST':
         email = request.form['email']
-        fullname = request.form['fullname']
-        username = request.form['username']
+        companys_name = request.form['companys_name']
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, username)
             UID = login_session['user']['localId']
-            user = {"fullname":fullname,"username": username,"email":email}
+            user = {"email":email, 'companys_name':companys_name}
             db.child("Users").child(UID).set(user)
-            return redirect(url_for('About_us'))
+            return redirect(url_for('thanku'))
         except:
             error = "Authentication failed"
             print(error)
     return render_template("Join_us.html")
+
+
+@app.route('/apply', methods = ['GET','POST'])
+def apply():
+    error = ""
+    if request.method == 'POST':
+        email = request.form['email']
+        fullname = request.form['fullname']
+        age = request.form['age']
+        profession = request.form['profession']
+        try:
+            login_session['user'] = auth.create_user_with_email_and_password(email, username)
+            UID = login_session['user']['localId']
+            user = {"email":email, 'fullname':fullname, 'age': age, "profession":profession}
+            db.child("Users").child(UID).set(user)
+            return redirect(url_for('thanku'))
+        except:
+            error = "Authentication failed"
+            print(error)
+    return render_template("apply.html")
+
 
 
 
@@ -76,6 +96,10 @@ def alumni():
 def companies():
     return render_template("companies.html")
 
+
+@app.route('/thanku')
+def thanku():
+    return render_template("thanku.html")
 
 #Code goes above here
 
