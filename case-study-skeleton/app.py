@@ -59,6 +59,24 @@ def partners():
 def About_us():
     return render_template("About_us.html")
 
+
+@app.route('/talents')
+def talents():
+    return render_template("talents.html")
+
+
+
+@app.route('/alumni')
+def alumni():
+    return render_template("alumni.html")
+
+
+
+@app.route('/companies')
+def companies():
+    return render_template("companies.html")
+
+
 #Code goes above here
 
 if __name__ == '__main__':
