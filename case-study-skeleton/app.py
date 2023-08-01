@@ -36,14 +36,13 @@ def Join_us():
         email = request.form['email']
         companys_name = request.form['companys_name']
         try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, username)
+            login_session['user'] = auth.create_user_with_email_and_password(email, companys_name)
             UID = login_session['user']['localId']
             user = {"email":email, 'companys_name':companys_name}
-            db.child("Users").child(UID).set(user)
-            return redirect(url_for('thanku'))
+            db.child("Companies").child(UID).set(user)
+            return redirect(url_for('thankyou'))
         except:
             error = "Authentication failed"
-            print(error)
     return render_template("Join_us.html")
 
 
@@ -52,13 +51,13 @@ def apply():
     error = ""
     if request.method == 'POST':
         email = request.form['email']
-        fullname = request.form['fullname']
+        username = request.form['fullname']
         age = request.form['age']
         profession = request.form['profession']
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, username)
             UID = login_session['user']['localId']
-            user = {"email":email, 'fullname':fullname, 'age': age, "profession":profession}
+            user = {"email":email, 'fullname':username, 'age': age, "profession":profession}
             db.child("Users").child(UID).set(user)
             return redirect(url_for('thanku'))
         except:
@@ -99,7 +98,15 @@ def companies():
 
 @app.route('/thanku')
 def thanku():
-    return render_template("thanku.html")
+    return render_template("thanku.html" )
+
+
+@app.route('/thankyou')
+def thankyou():
+    UID = login_session['user']['localId']
+    companys = db.child("Companies").child(UID).get().val()
+    return render_template("thankyou.html", com=companys)
+
 
 #Code goes above here
 
