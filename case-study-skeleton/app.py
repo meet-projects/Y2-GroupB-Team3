@@ -100,6 +100,17 @@ def companies():
 def thanku():
     return render_template("thanku.html" )
 
+@app.route('/talentprofile')
+def talentprofile():
+    return render_template("talentprofile.html" )
+
+
+
+@app.route('/companyprofile')
+def companyprofile():
+    return render_template("companyprofile.html" )
+
+
 
 @app.route('/thankyou')
 def thankyou():
