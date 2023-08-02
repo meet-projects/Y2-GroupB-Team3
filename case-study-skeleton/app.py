@@ -98,7 +98,9 @@ def companies():
 
 @app.route('/thanku')
 def thanku():
-    return render_template("thanku.html" )
+    UID = login_session['user']['localId']
+    name = db.child("Users").child(UID).get().val()
+    return render_template("thanku.html" , na=name)
 
 @app.route('/talentprofile')
 def talentprofile():
